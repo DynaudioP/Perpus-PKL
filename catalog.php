@@ -42,9 +42,8 @@ include 'connect.php';
         </div>
         <div class="box-body">
             <div class="wrap-filter">
-
                 <form class="filter-buku">
-                    <p>Rekomendasi Buku</p>
+                    <p>Rekomendasi Buku </p>
                     <button class="btn-filter">
                         <p>Filter</p>
                         <i class="fa-solid fa-filter"></i>
