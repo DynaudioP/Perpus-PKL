@@ -41,6 +41,15 @@ include 'connect.php';
             </nav>
         </div>
         <div class="box-body">
+            <div class='wrap-search'>
+                <form class='search-bar' action='catalog.php' method="get">
+                    <input type="text" name='search' class="input-saran" placeholder="Search.." >
+                    
+                    <button type='submit' name='cari' value="search-buku">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
             <div class="wrap-filter">
                 <form class="filter-buku">
                     <p>Rekomendasi Buku </p>
@@ -53,10 +62,14 @@ include 'connect.php';
             <div class="wrap-list-buku">
                 <div class="list-buku">
                     <?php
-                    $produk = mysqli_query($conn, 'SELECT * FROM `buku` ORDER BY `id_buku` DESC
-                        ');
-                    if (mysqli_num_rows($produk) > 0) {
-                        while ($p = mysqli_fetch_array($produk)) {
+
+                    $produk = mysqli_query($conn, "SELECT * FROM buku");
+                    if(isset($_GET['search'])) {
+                        $produk = mysqli_query($conn, "SELECT * FROM buku WHERE judul_buku LIKE '%".$_GET['search']."%'");
+                    }
+
+                    
+                    while ($p = mysqli_fetch_assoc($produk)) {
                     ?>
                             <div class="list-buku-item">
                                 <img src="assets/itembuku1.png" alt="item-buku">
@@ -68,13 +81,10 @@ include 'connect.php';
                                     <img src="assets/kategori1.png" alt="kategori item">
                                 </div>
                             </div>
-                        <?php
-                        }
-                    } else {
-                        ?>
-                        <P>tidak ada data</P>
+                        
+                    
                     <?php
-                    }
+                    };
                     ?>
                 </div>
             </div>
