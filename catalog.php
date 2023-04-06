@@ -42,16 +42,7 @@ include 'connect.php';
         </div>
         <div class="box-body">
             <div class="wrap-filter">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown button
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </div>
+
                 <form class="filter-buku">
                     <p>Rekomendasi Buku</p>
                     <button class="btn-filter">
@@ -67,8 +58,6 @@ include 'connect.php';
                         ');
                     if (mysqli_num_rows($produk) > 0) {
                         while ($p = mysqli_fetch_array($produk)) {
-
-
                     ?>
                             <div class="list-buku-item">
                                 <img src="assets/itembuku1.png" alt="item-buku">
